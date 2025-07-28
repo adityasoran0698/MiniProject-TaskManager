@@ -13,7 +13,7 @@ const HomePage = () => {
     const fetchAlltask = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/task/viewtasks",
+          "https://miniproject-taskmanager.onrender.com/task/viewtasks",
           {
             withCredentials: true,
           }
@@ -25,9 +25,12 @@ const HomePage = () => {
     };
     const fetchUsername = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/user/me", {
-          withCredentials: true,
-        });
+        const response = await axios.get(
+          "https://miniproject-taskmanager.onrender.com/user/me",
+          {
+            withCredentials: true,
+          }
+        );
         console.log("Username fetched:", response.data);
         setUsername(response.data.fullname);
       } catch (error) {
@@ -46,7 +49,7 @@ const HomePage = () => {
   };
   const handleDelete = async (task) => {
     const response = await axios.delete(
-      `http://localhost:8000/task/deleteTask/${task._id}`,
+      `https://miniproject-taskmanager.onrender.com/task/deleteTask/${task._id}`,
       {
         withCredentials: true,
       }
@@ -55,11 +58,11 @@ const HomePage = () => {
   };
   const handleStatus = async (task) => {
     const response = await axios.put(
-      `http://localhost:8000/task/mark-complete/${task._id}`,
+      `https://miniproject-taskmanager.onrender.com/task/mark-complete/${task._id}`,
       { withCredentials: true }
     );
     const updatedTask = await axios.get(
-      `http://localhost:8000/task/viewtasks`,
+      `https://miniproject-taskmanager.onrender.com/task/viewtasks`,
       { withCredentials: true }
     );
 

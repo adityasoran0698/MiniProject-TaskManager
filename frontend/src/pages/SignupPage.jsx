@@ -17,11 +17,14 @@ const SignupPage = () => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:8000/user/signup", {
-        fullname,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://miniproject-taskmanager.onrender.com/user/signup",
+        {
+          fullname,
+          email,
+          password,
+        }
+      );
       Navigate("/login");
     } catch (error) {
       setError("User already exists");

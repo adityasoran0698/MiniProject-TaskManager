@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import "./AddTask.css"
+import "./AddTask.css";
 
 const AddTask = () => {
   const [title, setTitle] = useState("");
@@ -21,13 +21,13 @@ const AddTask = () => {
     try {
       if (location.state?.id) {
         await axios.put(
-          `http://localhost:8000/task/addtask/${location.state.id}`,
+          `https://miniproject-taskmanager.onrender.com/task/addtask/${location.state.id}`,
           { title, content },
           { withCredentials: true }
         );
       } else {
         const response = await axios.post(
-          "http://localhost:8000/task/addtask",
+          "https://miniproject-taskmanager.onrender.com/task/addtask",
           { title, content },
           { withCredentials: true }
         );
@@ -46,7 +46,6 @@ const AddTask = () => {
   }, [location]);
 
   return (
-  
     <div className="add-task-container">
       {error && <div className="error">{error}</div>}
       <form className="task-form" onSubmit={handleSubmit}>
@@ -67,7 +66,6 @@ const AddTask = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="Enter task description"
-          
         />
 
         <button type="submit" className="submit-btn">

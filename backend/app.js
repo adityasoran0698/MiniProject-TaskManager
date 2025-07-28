@@ -16,7 +16,7 @@ MongodbConnection(url);
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://miniproject-taskmanager.onrender.com",
     credentials: true,
   })
 );
